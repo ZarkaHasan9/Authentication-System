@@ -8,8 +8,19 @@
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgba(151, 65, 33, 0.577) url("{% static '1.jpg' %}") no-repeat center center;
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
+    
     <header>
         <div class ="container">
             <input type="checkbox" id="check">

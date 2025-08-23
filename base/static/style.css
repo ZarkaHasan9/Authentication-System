@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh; 
-    /* background-image:url(12.jpg); */
+    /* background-image:url("/static/base/1.jpg"); */
     background-color: rgba(151, 65, 33, 0.577);
     background-size: cover;     
     background-position: center;
