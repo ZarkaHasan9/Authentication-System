@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+    <div class="cover_box active-popup {% if form_type == 'register' %}active{% endif %}">
+        <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
+                <!-- Register Form -->
+        <div class="form-box register">
+            <h2>Register</h2>
+            <form method="POST" action="{% url 'register' %}">
+                {% csrf_token %}
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <input type="text" required id="{{register_form.username.id_for_label}}" name="{{register_form.username.name}}" value="{{register_form.username.value}}">
+                    <label for="{{register_form.username.id_for_label}}">Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                    <input type="password" required name="{{register_form.password1.name}}" value="{{register_form.password1.value}}">
+                    <label for="{{register_form.password1.id_for_label}}">Password</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                    <input type="password" required name="{{register_form.password2.name}}" value="{{register_form.password2.value}}">
+                    <label for="{{register_form.password2.id_for_label}}">Confirm Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Agree to terms & conditions</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account? <a href="{% url 'login' %}"  class="login-link">Login</a></p>
+                </div>
+            </form>
+    </div>
+        <!-- Login form -->
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                 <div class="input-box">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <input type="text" required name="{{login_form.username.name}}" value="{{login_form.username.value}}">
+                    <label for="{{login_form.username.id_for_label}}">Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                    <input type="password" required name="{{login_form.password.name}}" value="{{login_form.password.value}}">
+                    <label for="{{login_form.password.id_for_label}}">Password</label>
+                </div>
+
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="{% url 'register' %}" class="register-link">Register</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+{% endblock %}
