@@ -10,31 +10,36 @@ def home(request):
 
 def register_view(request):
     if request.method =='POST':
-        form=UserCreationForm(request.POST)
-        if form.is_valid():
-            user= form.save()
+        register_form=UserCreationForm(request.POST)
+        # login_form = AuthenticationForm()
+        if register_form.is_valid():
+            user= register_form.save()
             messages.success(request, "Account created successfully! Please login.")
-            # login(request,user)
-            return redirect('login')
+            login(request,user)
+            return redirect('home')
         else:
             messages.error(request, "Error creating account. Please try again.")
     else:
-        # initial_data ={'username':'', 'password1':'', 'password2':''}
-        form = UserCreationForm()
-    return render(request,'auth/login.html',{"form_type": "register", "register_form": form})
+        initial_data ={'username':'', 'password1':'', 'password2':''}
+        register_form = UserCreationForm(initial=initial_data)
+        # login_form = AuthenticationForm()
+    return render(request,'auth/register.html',{"register_form": register_form, })
 
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user= form.get_user()
+        login_form = AuthenticationForm(request,  data=request.POST)
+        # register_form = UserCreationForm() 
+        if login_form.is_valid():
+            user= login_form.get_user()
             login(request,user)
             return redirect('home')
         else:
             messages.error(request, "Invalid username or password.")
     else:
-        form = AuthenticationForm()
-    return render(request,'auth/login.html',  {"form_type": "login", "login_form": form})
+        initial_data = {'username':'','password':''}
+        login_form = AuthenticationForm(initial=initial_data)
+        # register_form = UserCreationForm()
+    return render(request,'auth/login.html',{"login_form": login_form, })
 
 
 def logout_view(request):

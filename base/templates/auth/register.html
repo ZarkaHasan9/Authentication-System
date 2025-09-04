@@ -3,38 +3,42 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-<!-- 
-<div class="cover_box ">
-    <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span> -->
-    <!-- <div class="form-box register">
+<div class="cover_box active-popup active">
+        <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
+                <!-- Register Form -->
+        <div class="form-box register">
             <h2>Register</h2>
             <form method="POST" action="{% url 'register' %}">
                 {% csrf_token %}
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                    <input type="text" required id="{{form.username.id_for_label}}" name="{{form.username.name}}" value="{{form.username.value}}">
-                    <label for="{{form.username.id_for_label}}">Username</label>
+                    <input type="text" required  name="{{register_form.username.name}}" value="{{register_form.username.value}}">
+                    <label for="{{register_form.username.id_for_label}}">Username</label>
+                    <span class="error">{{ register_form.username.errors }}</span>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
-                    <input type="password" required name="{{form.password1.name}}" value="{{form.password1.value}}">
-                    <label for="{{form.password1.id_for_label}}">Password</label>
+                    <input type="password" required name="{{register_form.password1.name}}" value="{{register_form.password1.value}}">
+                    <label for="{{register_form.password1.id_for_label}}">Password</label>
+                    <span class="error">{{ register_form.password1.errors }}</span>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
-                    <input type="password" required name="{{form.password2.name}}" value="{{form.password2.value}}">
-                    <label for="{{form.password2.id_for_label}}">Confirm Password</label>
+                    <input type="password" required name="{{register_form.password2.name}}" value="{{register_form.password2.value}}">
+                    <label for="{{register_form.password2.id_for_label}}">Confirm Password</label>
+                    <span class="error">{{ register_form.password2.errors }}</span>
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Agree to terms & conditions</label>
                     <a href="#">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn">Register</button>
-                <div class="login-link">
+                <div class="login-register">
                     <p>Already have an account? <a href="{% url 'login' %}"  class="login-link">Login</a></p>
                 </div>
             </form>
-    </div> -->
-<!-- </div> -->
-  
+    </div>
+    </div>
+
+
 {% endblock %}

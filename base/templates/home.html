@@ -5,8 +5,10 @@
 {% block content %}
 <div class="home-container">
     <h1>Welcome to the Home Page</h1>
+    <h2>hey : {{request.user.username}}</h2>
     <p>This is your starting point to explore what we’ve built.</p>
-<p>Take a look around, discover the features, and enjoy your time here!</p>
+    <p>Take a look around, discover the features, and enjoy your time here!</p>
+    <a href="{% url 'logout' %}">Logout</a>
 
 </div>
 {%endblock %}

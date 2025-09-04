@@ -3,10 +3,10 @@
 {% block title %}Login Page{% endblock %}
 
 {% block content %}
-    <div class="cover_box active-popup {% if form_type == 'register' %}active{% endif %}">
+    <div class="cover_box active-popup">
         <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
                 <!-- Register Form -->
-        <div class="form-box register">
+        <!-- <div class="form-box register  {% if form_type == 'register' %}active{% endif %}">
             <h2>Register</h2>
             <form method="POST" action="{% url 'register' %}">
                 {% csrf_token %}
@@ -34,7 +34,7 @@
                     <p>Already have an account? <a href="{% url 'login' %}"  class="login-link">Login</a></p>
                 </div>
             </form>
-    </div>
+    </div> -->
         <!-- Login form -->
         <div class="form-box login">
             <h2>Login</h2>
