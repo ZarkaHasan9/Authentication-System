@@ -3,11 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib import messages
+from .middlewares import auth ,guest
 
 # Create your views here.
+@auth
 def home(request):
     return render(request, 'home.html')
-
+@guest
 def register_view(request):
     if request.method =='POST':
         register_form=UserCreationForm(request.POST)
